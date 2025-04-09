@@ -3,7 +3,7 @@ package com.bahl.dynamicsales.dto;
 import java.time.LocalDateTime;
 
 public class LoginResponseDto {
-    private Long userId;
+    private Integer userId;
     private String username;
     private Integer roleId;
     private Integer branchId;
@@ -12,7 +12,7 @@ public class LoginResponseDto {
     public LoginResponseDto() {
     }
 
-    public LoginResponseDto(Long userId, String username, Integer roleId, Integer branchId, LocalDateTime lastLogin) {
+    public LoginResponseDto(Integer userId, String username, Integer roleId, Integer branchId, LocalDateTime lastLogin) {
         this.userId = userId;
         this.username = username;
         this.roleId = roleId;
@@ -20,11 +20,11 @@ public class LoginResponseDto {
         this.lastLogin = lastLogin;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -58,5 +58,16 @@ public class LoginResponseDto {
 
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
+    }
+
+    @Override
+    public String toString() {
+        return "LoginResponseDto{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", roleId=" + roleId +
+                ", branchId=" + branchId +
+                ", lastLogin=" + lastLogin +
+                '}';
     }
 }

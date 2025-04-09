@@ -1,15 +1,25 @@
 package com.bahl.dynamicsales.dto;
 
 public class LoginRequestDto {
+    private Integer branchId;
     private String username;
-    private String password;
+    private String passwordHash;
 
     public LoginRequestDto() {
     }
 
-    public LoginRequestDto(String username, String password) {
+    public LoginRequestDto(Integer branchId, String username, String passwordHash) {
+        this.branchId = branchId;
         this.username = username;
-        this.password = password;
+        this.passwordHash = passwordHash;
+    }
+
+    public Integer getBranchId() {
+        return branchId;
+    }
+
+    public void setBranchId(Integer branchId) {
+        this.branchId = branchId;
     }
 
     public String getUsername() {
@@ -20,11 +30,11 @@ public class LoginRequestDto {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 }

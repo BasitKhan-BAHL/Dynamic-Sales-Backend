@@ -3,19 +3,32 @@ package com.bahl.dynamicsales.model;
 import java.time.LocalDateTime;
 
 public class LoginEntity {
-    private Long userId;
+    private Integer userId;
     private String username;
     private Integer roleId;
     private Integer branchId;
-//    private String passwordHash;
-//    private LocalDateTime createdDate;
+    private String passwordHash;
+    private LocalDateTime createdDate;
     private LocalDateTime lastLogin;
 
-    public Long getUserId() {
+    public LoginEntity() {
+    }
+
+    public LoginEntity(Integer userId, String username, Integer roleId, Integer branchId, String passwordHash, LocalDateTime createdDate, LocalDateTime lastLogin) {
+        this.userId = userId;
+        this.username = username;
+        this.roleId = roleId;
+        this.branchId = branchId;
+        this.passwordHash = passwordHash;
+        this.createdDate = createdDate;
+        this.lastLogin = lastLogin;
+    }
+
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -43,21 +56,21 @@ public class LoginEntity {
         this.branchId = branchId;
     }
 
-//    public String getPasswordHash() {
-//        return passwordHash;
-//    }
+    public String getPasswordHash() {
+        return passwordHash;
+    }
 
-//    public void setPasswordHash(String passwordHash) {
-//        this.passwordHash = passwordHash;
-//    }
-//
-//    public LocalDateTime getCreatedDate() {
-//        return createdDate;
-//    }
-//
-//    public void setCreatedDate(LocalDateTime createdDate) {
-//        this.createdDate = createdDate;
-//    }
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
+    }
+
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
 
     public LocalDateTime getLastLogin() {
         return lastLogin;
@@ -74,8 +87,8 @@ public class LoginEntity {
                 ", username='" + username + '\'' +
                 ", roleId=" + roleId +
                 ", branchId=" + branchId +
-//                ", passwordHash='" + passwordHash + '\'' +
-//                ", createdDate=" + createdDate +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", createdDate=" + createdDate +
                 ", lastLogin=" + lastLogin +
                 '}';
     }
