@@ -1,26 +1,22 @@
-package com.bahl.dynamicsales.model;
+package com.bahl.dynamicsales.dto.login;
 
 import java.time.LocalDateTime;
 
-public class LoginEntity {
+public class LoginResponseDto {
     private Integer userId;
     private String username;
     private Integer roleId;
     private Integer branchId;
-    private String passwordHash;
-    private LocalDateTime createdDate;
     private LocalDateTime lastLogin;
 
-    public LoginEntity() {
+    public LoginResponseDto() {
     }
 
-    public LoginEntity(Integer userId, String username, Integer roleId, Integer branchId, String passwordHash, LocalDateTime createdDate, LocalDateTime lastLogin) {
+    public LoginResponseDto(Integer userId, String username, Integer roleId, Integer branchId, LocalDateTime lastLogin) {
         this.userId = userId;
         this.username = username;
         this.roleId = roleId;
         this.branchId = branchId;
-        this.passwordHash = passwordHash;
-        this.createdDate = createdDate;
         this.lastLogin = lastLogin;
     }
 
@@ -56,22 +52,6 @@ public class LoginEntity {
         this.branchId = branchId;
     }
 
-    public String getPasswordHash() {
-        return passwordHash;
-    }
-
-    public void setPasswordHash(String passwordHash) {
-        this.passwordHash = passwordHash;
-    }
-
-    public LocalDateTime getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDateTime createdDate) {
-        this.createdDate = createdDate;
-    }
-
     public LocalDateTime getLastLogin() {
         return lastLogin;
     }
@@ -82,13 +62,11 @@ public class LoginEntity {
 
     @Override
     public String toString() {
-        return "LoginEntity{" +
+        return "LoginResponseDto{" +
                 "userId=" + userId +
                 ", username='" + username + '\'' +
                 ", roleId=" + roleId +
                 ", branchId=" + branchId +
-                ", passwordHash='" + passwordHash + '\'' +
-                ", createdDate=" + createdDate +
                 ", lastLogin=" + lastLogin +
                 '}';
     }

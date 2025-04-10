@@ -1,4 +1,4 @@
-package com.bahl.dynamicsales.dto;
+package com.bahl.dynamicsales.dto.login;
 
 public class LoginRequestDto {
     private Integer branchId;

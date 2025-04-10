@@ -1,8 +1,8 @@
 package com.bahl.dynamicsales.service;
 
-import com.bahl.dynamicsales.client.LoginDALClient;
-import com.bahl.dynamicsales.dto.LoginRequestDto;
-import com.bahl.dynamicsales.dto.LoginResponseDto;
+import com.bahl.dynamicsales.client.AuthDALClient;
+import com.bahl.dynamicsales.dto.login.LoginRequestDto;
+import com.bahl.dynamicsales.dto.login.LoginResponseDto;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -16,10 +16,10 @@ public class LoginService {
 
     @Inject
     @RestClient
-    LoginDALClient dalClient;
+    AuthDALClient dalClient;
 
-    public LoginResponseDto authenticate(LoginRequestDto loginRequestDto) {
+    public LoginResponseDto login(LoginRequestDto loginRequestDto) {
         log.info("Calling DAL for user: {}", loginRequestDto.getUsername());
-        return dalClient.authenticate(loginRequestDto);
+        return dalClient.login(loginRequestDto);
     }
 }

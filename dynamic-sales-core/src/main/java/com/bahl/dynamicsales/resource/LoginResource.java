@@ -1,7 +1,7 @@
 package com.bahl.dynamicsales.resource;
 
-import com.bahl.dynamicsales.dto.LoginResponseDto;
-import com.bahl.dynamicsales.dto.LoginRequestDto;
+import com.bahl.dynamicsales.dto.login.LoginResponseDto;
+import com.bahl.dynamicsales.dto.login.LoginRequestDto;
 import com.bahl.dynamicsales.service.LoginService;
 import com.bahl.dynamicsales.utils.ErrorResponseBuilder;
 import jakarta.inject.Inject;
@@ -30,7 +30,7 @@ public class LoginResource {
         }
 
         try {
-            LoginResponseDto loginResponse = loginService.authenticate(loginRequestDto);
+            LoginResponseDto loginResponse = loginService.login(loginRequestDto);
             return Response.ok(Map.of("data", loginResponse, "message", "You have been logged in successfully.", "success", true)).build(); // For successful response
         } catch (ClientWebApplicationException ex) {
             if (ex.getResponse().getStatus() == Response.Status.UNAUTHORIZED.getStatusCode()) {
