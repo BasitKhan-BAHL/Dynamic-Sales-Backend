@@ -1,5 +1,6 @@
 package com.bahl.dynamicsales.resource;
 
+import com.bahl.dynamicsales.dto.DalLoginRequest;
 import com.bahl.dynamicsales.model.UserEntity;
 import com.bahl.dynamicsales.repository.UserRepository;
 import io.smallrye.mutiny.Uni;
@@ -8,6 +9,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.mindrot.jbcrypt.BCrypt;
+import java.util.Optional;
 
 @Path("/dal/login")
 @Produces(MediaType.APPLICATION_JSON)

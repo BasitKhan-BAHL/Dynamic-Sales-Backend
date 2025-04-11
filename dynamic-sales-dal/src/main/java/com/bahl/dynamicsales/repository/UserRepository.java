@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @ApplicationScoped
 public class UserRepository {
@@ -79,6 +80,28 @@ public class UserRepository {
             throw new RuntimeException("DB error while finding user by username", e);
         }
         return null;
+    }
+
+    private Optional<Integer> findBranchIdByCode(String branchCode) {
+        String sql = "SELECT Branch_ID FROM Branches WHERE Branch_Code = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, branchCode);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                return Optional.of(rs.getInt("Branch_ID"));
+            } else {
+                return Optional.empty();
+            }
+        } catch (SQLException e) {
+            LOGGER.error("DB error while finding Branch ID by code: {}", branchCode, e);
+            // Consider if you want to throw a custom exception or just return empty
+            // Returning empty might mask DB errors from login attempts, which can be good practice
+            // throw new RuntimeException("DB error while finding Branch ID by code", e); // Or rethrow
+            return Optional.empty();
+        }
     }
 
     private UserEntity mapRowToUserEntity(ResultSet resultSet) throws SQLException {

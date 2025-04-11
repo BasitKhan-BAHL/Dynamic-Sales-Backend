@@ -25,7 +25,7 @@ public class LoginResource {
 
     @POST
     public Response login(LoginRequestDto loginRequestDto) {
-        if (loginRequestDto == null || loginRequestDto.getBranchId() == null || loginRequestDto.getUsername() == null || loginRequestDto.getUsername().trim().isEmpty() || loginRequestDto.getPasswordHash() == null || loginRequestDto.getPasswordHash().trim().isEmpty()) {
+        if (loginRequestDto == null || loginRequestDto.getBranchCode() == null || loginRequestDto.getBranchCode().trim().isEmpty() || loginRequestDto.getUsername() == null || loginRequestDto.getUsername().trim().isEmpty() || loginRequestDto.getPasswordHash() == null || loginRequestDto.getPasswordHash().trim().isEmpty()) {
             return ErrorResponseBuilder.buildBadRequestResponse("Username, Branch ID, and password are required");
         }
 
